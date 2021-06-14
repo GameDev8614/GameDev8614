@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
 
    public void LimitPlayer()
    {
-      transform.position = new Vector3(Mathf.Clamp(transform.position.x, -10, 10),
+      transform.position = new Vector3(Mathf.Clamp(transform.position.x, -8, 8),
                                        Mathf.Clamp(transform.position.y, -3, 0.5f));
    }
    private void Update()
