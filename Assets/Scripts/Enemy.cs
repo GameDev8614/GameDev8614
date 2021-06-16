@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour, IEnemy
+public class Enemy : MonoBehaviour, IEnemy, IDestroyable
 {
     [HideInInspector] public float Health { get; set; }
 
@@ -18,5 +18,18 @@ public class Enemy : MonoBehaviour, IEnemy
     public void Shoot()
     {
    
+    }
+
+    public void SelfDestroy()
+    {
+        if (transform.position.y < -10)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void Update()
+    {
+        SelfDestroy();
     }
 }

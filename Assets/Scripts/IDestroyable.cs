@@ -1,0 +1,6 @@
+
+
+interface IDestroyable
+{
+    void SelfDestroy();
+}
