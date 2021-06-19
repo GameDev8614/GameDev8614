@@ -9,8 +9,7 @@ public class PlayerHealth : MonoBehaviour
     public float Hp => _hp;
     
     [SerializeField] private Text _hpText;
-
-    [SerializeField] private UnityEvent _onPlayerDead;
+    [SerializeField] private PlayerDeath _playerDeath;
 
     private void Start()
     {
@@ -26,7 +25,7 @@ public class PlayerHealth : MonoBehaviour
         }
         else
         {
-            _onPlayerDead.Invoke();
+            _playerDeath.PlayerDead.Invoke();
         }
     }
 
