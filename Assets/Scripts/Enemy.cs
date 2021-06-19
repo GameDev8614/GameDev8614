@@ -4,6 +4,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour, IEnemy, IDestroyable
 {
     [HideInInspector] public float Health { get; set; }
+    
 
     private void Start()
     {

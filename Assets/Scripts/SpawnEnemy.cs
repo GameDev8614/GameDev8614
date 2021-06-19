@@ -12,6 +12,7 @@ public class SpawnEnemy : MonoBehaviour
 
   private int _randomNumber;
   [SerializeField] private int _taskDelay;
+  [SerializeField] private GameObject _panel;
 
   private void Start()
   {
@@ -20,7 +21,7 @@ public class SpawnEnemy : MonoBehaviour
   
   public IEnumerator InstantiateEnemy()
   {
-    while (true)
+    while (!_panel.activeSelf)
     {
       _randomNumber = Random.Range(0, _enemies.Count);
       _xPosition = Random.Range(-8, 9);
