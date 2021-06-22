@@ -1,10 +1,17 @@
-using System;
 using UnityEngine;
 
 public class DontDestroyAudio : MonoBehaviour
 {
+    private static DontDestroyAudio _instance;
+    
     private void Awake()
     {
-        DontDestroyOnLoad(transform.gameObject);
+        if (_instance == null)
+        {
+            _instance = this;
+            DontDestroyOnLoad(this.gameObject);
+            return;
+        }
+        Destroy(this.gameObject);
     }
 }

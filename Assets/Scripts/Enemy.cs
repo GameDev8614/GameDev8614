@@ -13,7 +13,6 @@ public class Enemy : MonoBehaviour, IEnemy, IDestroyable
     {
         _scoreCounter = GameObject.FindObjectOfType<ScoreCounter>();
         Health = 5;
-        Shoot();
     }
 
     public void GetDamage(float damageAmount)
@@ -21,20 +20,7 @@ public class Enemy : MonoBehaviour, IEnemy, IDestroyable
         Health -= damageAmount;
     }
 
-    public void Shoot()
-    {
-        StartCoroutine(ShootBullets());
-    }
-
-    private IEnumerator ShootBullets()
-    {
-        while (true)
-        {
-            Instantiate(_bullet, transform.position, Quaternion.Euler(0, -180, 0));
-            yield return new WaitForSeconds(1);
-        }
-        
-    }
+    public void Shoot(){}
 
     public void SelfDestroy()
     {
