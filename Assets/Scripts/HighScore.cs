@@ -10,7 +10,7 @@ public class HighScore : MonoBehaviour
 
     private void Start()
     {
-        _highScoreTxt.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
+        _highScoreTxt.text = "HighScore: " + PlayerPrefs.GetInt("HighScore", 0).ToString();
     }
 
     public void SetHighScore()
