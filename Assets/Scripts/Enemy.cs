@@ -6,10 +6,12 @@ public class Enemy : MonoBehaviour, IEnemy, IDestroyable
 {
     [HideInInspector] public float Health { get; set; }
     [SerializeField] private GameObject _bullet;
+    private ScoreCounter _scoreCounter;
     
 
     private void Start()
     {
+        _scoreCounter = GameObject.FindObjectOfType<ScoreCounter>();
         Health = 5;
         Shoot();
     }
@@ -45,5 +47,14 @@ public class Enemy : MonoBehaviour, IEnemy, IDestroyable
     private void Update()
     {
         SelfDestroy();
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.GetComponent<Bullet>())
+        {
+            Destroy(gameObject);
+            _scoreCounter.IncreaseScore();
+        }
     }
 }
