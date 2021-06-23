@@ -11,7 +11,7 @@ public class SpawnEnemy : MonoBehaviour
   private float _yPosition = 6f;
 
   private int _randomNumber;
-  [SerializeField] private int _taskDelay;
+  [SerializeField] private float _taskDelay;
   [SerializeField] private GameObject _panel;
 
   private void Start()
@@ -27,6 +27,10 @@ public class SpawnEnemy : MonoBehaviour
       _xPosition = Random.Range(-8, 9);
       Instantiate(_enemies[_randomNumber], new Vector2(_xPosition, _yPosition), Quaternion.identity);
       yield return new WaitForSeconds(_taskDelay);
+      if (_taskDelay > 0.5f)
+      {
+        _taskDelay -= 0.2f;
+      }
     }
   }
 }

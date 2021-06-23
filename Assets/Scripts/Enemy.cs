@@ -40,6 +40,7 @@ public class Enemy : MonoBehaviour, IEnemy, IDestroyable
         if (other.gameObject.GetComponent<Bullet>())
         {
             Destroy(gameObject);
+            Destroy(other.gameObject);
             _scoreCounter.IncreaseScore();
         }
     }
